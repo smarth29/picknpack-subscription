@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PicknPack | Subscription Packaging for Growing Businesses</title>
+<meta name="description" content="PicknPack is a subscription platform that delivers courier bags, labels, tapes and stretch films to your business every month — no reordering, no stockouts." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN, config extended below) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            blue: '#155EEF',
+            blueDark: '#0E45B8',
+            navy: '#0B1F3A',
+            green: '#16A34A',
+            greenSoft: '#ECFDF3',
+            surface: '#FFFFFF',
+            soft: '#F6F8FB',
+            slate: '#475569',
+          }
+        },
+        fontFamily: {
+          display: ['Sora', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        },
+        boxShadow: {
+          soft: '0 2px 8px rgba(11, 31, 58, 0.06)',
+          card: '0 8px 24px rgba(11, 31, 58, 0.08)',
+          lift: '0 16px 40px rgba(21, 94, 239, 0.16)',
+        },
+        borderRadius: {
+          xl2: '1.25rem',
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="font-body text-brand-slate bg-brand-surface antialiased">
+
+<!-- ===================== NAVBAR ===================== -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-[72px]">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <span class="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 7L12 2L21 7V17L12 22L3 17V7Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M3 7L12 12M12 12L21 7M12 12V22" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="font-display font-bold text-lg text-brand-navy tracking-tight">PicknPack</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Products</a>
+        <a href="#" class="nav-link">Plans</a>
+        <a href="#" class="nav-link">Dashboard</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#" class="text-sm font-semibold text-brand-navy hover:text-brand-blue transition-colors px-3 py-2">Log in</a>
+        <a href="#" class="text-sm font-semibold text-white bg-brand-blue hover:bg-brand-blueDark transition-all px-5 py-2.5 rounded-lg shadow-soft hover:shadow-lift">
+          Start free trial
+        </a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="menuToggle" aria-label="Toggle menu" aria-expanded="false" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-brand-soft transition-colors">
+        <svg id="iconOpen" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1F3A" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1F3A" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobileMenu" class="lg:hidden hidden bg-white border-t border-slate-100 shadow-card">
+    <nav class="flex flex-col px-5 py-4 gap-1">
+      <a href="#" class="nav-link-mobile">Home</a>
+      <a href="#" class="nav-link-mobile">Products</a>
+      <a href="#" class="nav-link-mobile">Plans</a>
+      <a href="#" class="nav-link-mobile">Dashboard</a>
+      <a href="#" class="nav-link-mobile">About</a>
+      <a href="#" class="nav-link-mobile">Contact</a>
+      <div class="flex flex-col gap-2 mt-3 pt-3 border-t border-slate-100">
+        <a href="#" class="text-center text-sm font-semibold text-brand-navy py-2.5">Log in</a>
+        <a href="#" class="text-center text-sm font-semibold text-white bg-brand-blue py-2.5 rounded-lg">Start free trial</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-28 bg-gradient-to-b from-brand-soft to-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
+
+    <!-- Copy -->
+    <div class="max-w-xl">
+      <span class="inline-flex items-center gap-2 bg-brand-greenSoft text-brand-green text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>
+        Now live for Indian D2C & courier businesses
+      </span>
+
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.1] text-brand-navy tracking-tight">
+        Packaging supplies,<br/>
+        delivered on <span class="text-brand-blue">autopilot.</span>
+      </h1>
+
+      <p class="mt-6 text-lg text-brand-slate leading-relaxed">
+        Subscribe once. Get courier bags, labels, tapes and stretch films restocked every month — sized to your order volume, never your guesswork.
+      </p>
+
+      <div class="mt-9 flex flex-col sm:flex-row gap-3">
+        <a href="#" class="inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blueDark text-white font-semibold text-sm px-6 py-3.5 rounded-lg shadow-lift transition-all hover:-translate-y-0.5">
+          Start free trial
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#" class="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold text-sm px-6 py-3.5 rounded-lg border border-slate-200 hover:border-brand-blue/40 hover:bg-brand-soft transition-all">
+          See subscription plans
+        </a>
+      </div>
+
+      <div class="mt-10 flex items-center gap-6 text-sm text-brand-slate">
+        <div class="flex items-center gap-1.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          No long-term lock-in
+        </div>
+        <div class="flex items-center gap-1.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Pause or scale anytime
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature visual: Refill Cycle -->
+    <div class="relative flex items-center justify-center">
+      <div class="refill-ring">
+        <div class="ring-track"></div>
+        <div class="ring-node node-1"><span>📦</span></div>
+        <div class="ring-node node-2"><span>🏷️</span></div>
+        <div class="ring-node node-3"><span>🎞️</span></div>
+        <div class="ring-node node-4"><span>🚚</span></div>
+
+        <div class="ring-center">
+          <p class="text-xs font-mono text-brand-slate mb-1">THIS MONTH</p>
+          <p class="font-display font-bold text-2xl text-brand-navy">2,400</p>
+          <p class="text-xs text-brand-slate">units refilled</p>
+        </div>
+      </div>
+
+      <!-- Floating stat card -->
+      <div class="absolute -bottom-4 -left-2 sm:left-0 bg-white rounded-xl shadow-card px-4 py-3 flex items-center gap-3 float-card">
+        <div class="w-9 h-9 rounded-lg bg-brand-greenSoft flex items-center justify-center text-brand-green font-bold text-sm">✓</div>
+        <div>
+          <p class="text-xs text-brand-slate leading-none mb-1">Next delivery</p>
+          <p class="text-sm font-semibold text-brand-navy font-mono leading-none">in 4 days</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+
+:root {
+  --brand-blue: #155EEF;
+  --brand-navy: #0B1F3A;
+  --brand-green: #16A34A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preference across the whole site */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================== Navbar ===================== */
+#navbar {
+  background: transparent;
+}
+#navbar.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(11, 31, 58, 0.06);
+}
+
+.nav-link {
+  @apply text-sm font-medium text-brand-navy/80 hover:text-brand-blue px-4 py-2 rounded-md transition-colors;
+}
+.nav-link-mobile {
+  @apply text-sm font-medium text-brand-navy py-2.5 border-b border-slate-50;
+}
+
+/* ===================== Hero: Refill Ring (signature element) =====================
+   A circular "subscription cycle" visual: four packaging-stage icons orbit
+   a center stat, encoding the idea of recurring replenishment — not a stock
+   illustration, built purely with CSS to stay lightweight and on-brand. */
+
+.refill-ring {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+@media (min-width: 1024px) {
+  .refill-ring { width: 380px; height: 380px; }
+}
+
+.ring-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(21, 94, 239, 0.25);
+  animation: spin 28s linear infinite;
+}
+
+.ring-center {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(11, 31, 58, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgba(11, 31, 58, 0.06);
+}
+
+.ring-node {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  animation: counterSpin 28s linear infinite;
+}
+
+.node-1 { top: -10px; left: 50%; transform: translateX(-50%); }
+.node-2 { top: 50%; right: -10px; transform: translateY(-50%); }
+.node-3 { bottom: -10px; left: 50%; transform: translateX(-50%); }
+.node-4 { top: 50%; left: -10px; transform: translateY(-50%); }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Counter-rotate icons so they stay upright while orbiting */
+@keyframes counterSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+.node-1 { animation-name: counterSpinNode1; }
+.node-2 { animation-name: counterSpinNode2; }
+.node-3 { animation-name: counterSpinNode3; }
+.node-4 { animation-name: counterSpinNode4; }
+
+@keyframes counterSpinNode1 {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(-360deg); }
+}
+@keyframes counterSpinNode2 {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(-360deg); }
+}
+@keyframes counterSpinNode3 {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(-360deg); }
+}
+@keyframes counterSpinNode4 {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(-360deg); }
+}
+
+.float-card {
+  animation: floatY 4s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
